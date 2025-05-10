@@ -1,0 +1,420 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bases And Rank</title>
+    <style>
+      * {
+        text-decoration: none;
+        margin: 0px;
+        padding: 0px;
+      }
+
+      body {
+        margin: 0px;
+        padding: 0px;
+        font-family: "Open Sans", sans-serif;
+      }
+
+      .wrapper {
+        width: 1100px;
+        margin: auto;
+        position: relative;
+      }
+
+      .logo a {
+        font-size: 50px;
+        font-weight: 800;
+        float: left;
+        font-family: courier;
+        color: #364f6b;
+      }
+
+      .menu {
+        float: right;
+      }
+
+      nav {
+        width: 100%;
+        margin: auto;
+        display: flex;
+        line-height: 80px;
+        position: sticky;
+        position: -webkit-sticky;
+        top: 0;
+        background: #ffffff;
+        z-index: 1;
+        border-bottom: 1px solid #364f6b;
+      }
+
+      nav ul {
+        list-style-type: none;
+        margin: 0;
+        padding: 0;
+        overflow: hidden;
+      }
+
+      nav ul li {
+        float: left;
+      }
+
+      nav ul li a {
+        color: black;
+        font-weight: bold;
+        text-align: center;
+        padding: 0px 16px 0px 16px;
+        text-decoration: none;
+      }
+
+      nav ul li a:hover {
+        text-decoration: underline;
+      }
+
+      section {
+        margin: auto;
+        display: flex;
+        margin-bottom: 50px;
+      }
+
+      section img {
+        display: block;
+        width: 100%;
+        height: auto;
+      }
+
+      .kolom {
+        margin-top: 50px;
+        margin-bottom: 50px;
+      }
+
+      .kolom .deskripsi {
+        font-size: 20px;
+        font-weight: bold;
+        font-family: "comic sans ms";
+        color: #364f6b;
+      }
+
+      h2 {
+        font-family: "comic sans ms";
+        font-weight: 800;
+        font-size: 45px;
+        margin-bottom: 20px;
+        color: #364f6b;
+        width: 100%;
+        line-height: 50px;
+      }
+
+      a.tbl-biru {
+        background: #3f72af;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 15px 20px 15px 20px;
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      a.tbl-biru:hover {
+        background: #fc5185;
+        text-decoration: none;
+      }
+
+      a.tbl-pink {
+        background: #fc5185;
+        border-radius: 20px;
+        margin-top: 20px;
+        padding: 15px 20px 15px 20px;
+        color: #ffffff;
+        cursor: pointer;
+        font-weight: bold;
+      }
+
+      a.tbl-pink:hover {
+        background: #3f72af;
+        text-decoration: none;
+      }
+
+      p {
+        margin: 10px 0px 10px 0px;
+        padding: 10px 0px 10px 0px;
+      }
+
+      .kalkulator {
+        background-color: aliceblue;
+        position: relative;
+        border-radius: 10px;
+        color: darkblue;
+        text-align: center;
+      }
+
+      .tengah {
+        text-align: center;
+        width: 100%;
+      }
+
+      .tutor-list {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .kartu-tutor {
+        width: 20%;
+        margin: 0 auto;
+      }
+
+      .kartu-tutor img {
+        width: 80%;
+        border-radius: 50%;
+      }
+
+      .kartu-tutor p {
+        font-family: "comic sans ms";
+        font-weight: 800;
+        font-size: 25px;
+        text-align: center;
+        color: #364f6b;
+      }
+
+      .partner-list {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+      }
+
+      .kartu-partner {
+        width: 20%;
+        margin: 0 auto;
+      }
+
+      .kartu-partner img {
+        width: 150px;
+        border-radius: 50%;
+      }
+
+      #contact {
+        background: #dedede;
+        padding: 50px 0px 50px 0px;
+      }
+
+      .footer {
+        width: 100%;
+        position: relative;
+        display: flex;
+        flex-wrap: wrap;
+        margin: auto;
+      }
+
+      .footer-section {
+        width: 20%;
+        margin: 0 auto;
+      }
+
+      h3 {
+        font-family: "comic sans ms";
+        font-weight: 800;
+        font-size: 30px;
+        margin-bottom: 20px;
+        color: #364f6b;
+        width: 100%;
+        line-height: 50px;
+      }
+
+      #copyright {
+        text-align: center;
+        width: 100%;
+        padding: 30px 0px 30px 0px;
+        margin-top: 10px;
+      }
+      main {
+        margin: 0 auto;
+        padding: 4rem 0;
+        width: 90%;
+        max-width: 60rem;
+      }
+
+      form {
+        background: whitesmoke;
+        display: flex;
+        box-sizing: border-box;
+        padding: 2rem;
+        border-radius: 1rem;
+        background-color: hsl(0, 0%, 100%);
+        border: 4px solid hsl(0, 0%, 90%);
+        display: grid;
+        grid-template-columns: 1fr 1fr;
+        gap: 2rem;
+      }
+
+      @media screen and (max-width: 991.98px) {
+        .wrapper {
+          width: 90%;
+        }
+
+        .logo a {
+          display: block;
+          width: 100%;
+          text-align: center;
+        }
+
+        nav .menu {
+          width: 100%;
+          margin: 0;
+        }
+
+        nav .menu ul {
+          text-align: center;
+          margin: auto;
+          line-height: 60px;
+        }
+
+        nav .menu ul li {
+          display: inline-block;
+          float: none;
+        }
+
+        section {
+          display: block;
+        }
+
+        section img {
+          display: block;
+          width: 100%;
+          height: auto;
+        }
+
+        .kartu-tutor {
+          width: 50%;
+        }
+
+        .kartu-partner {
+          width: 50%;
+        }
+      }
+    </style>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com" />
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+    <link href="https://fonts.googleapis.com/css2?family=Permanent+Marker&family=Poppins:wght@300;400;500;600;700;800;900&display=swap" rel="stylesheet" />
+  </head>
+
+  <body>
+    <nav>
+      <div class="wrapper">
+        <div class="logo"><a href="">Bases and Rank</a></div>
+        <div class="menu">
+          <ul class="nav-list">
+            <li><a href="#home">Basis</a></li>
+            <li><a href="#courses">Ranking</a></li>
+            <li><a href="#partners">Kalkulator</a></li>
+            <li><a href="#tutors">Kreator</a></li>
+            <li><a href="#contact">Kontak</a></li>
+          </ul>
+        </div>
+      </div>
+    </nav>
+    <div class="wrapper">
+      <!-- untuk home -->
+      <section id="home">
+        <img
+          src="https://img.freepik.com/free-vector/web-development-programmer-engineering-coding-website-augmented-reality-interface-screens-developer-project-engineer-programming-software-application-design-cartoon-illustration_107791-3863.jpg?size=626&ext=jpg&ga=GA1.2.1769275626.1605867161"
+        />
+        <div class="kolom">
+          <p class="deskripsi">Apa sih Bases?</p>
+          <h2>Basis adalah</h2>
+          <p>Dalam aljabar linear, basis adalah himpunan vektor, yang dalam sebuah kombinasi linear dapat merepresentasikan setiap vektor dalam suatu ruang vektor.</p>
+          <p><a href="https://youtu.be/_DwS2beGWUo?si=Z4ErmmQYrY83rQus" class="tbl-pink">Pelajari Lebih Lanjut</a></p>
+        </div>
+      </section>
+
+      <section id="courses">
+        <div class="kolom">
+          <p class="deskripsi">Apa itu Ranking?</p>
+          <h2>Ranking adalah</h2>
+          <p>pangkat matriks A adalah dimensi ruang vektor yang dihasilkan (atau direntang ) oleh kolom - kolomnya. [1] [2] [3] Ini sesuai dengan jumlah maksimal kolom bebas linier dari A .</p>
+
+          <p><a href="https://youtu.be/NFVx22rt8Yw?si=FjwAo7y3PMedg7Nj" class="tbl-biru">Pelajari Lebih Lanjut</a></p>
+        </div>
+        <img src="https://img.freepik.com/free-vector/online-learning-isometric-concept_1284-17947.jpg?size=626&ext=jpg&ga=GA1.2.1769275626.1605867161" />
+      </section>
+      <section id="partners">
+        <div class="tengah">
+          <div class="kolom">
+            <p class="deskripsi">Kalkulator Bases and Rank</p>
+            <h2>Calculator</h2>
+            <p>Kalkulator ini hanya dapat digunakan untuk mencari Bases and Ranking dari matriks</p>
+            <main>
+              <form action="/calculate" method="post">
+                <label for="rows">Jumlah Baris:</label>
+                <input type="number" id="rows" name="rows" required />
+                <label for="cols">Jumlah Kolom:</label>
+                <input type="number" id="cols" name="cols" required />
+                <label for="matrix">Masukkan Matriks:</label>
+                <textarea id="matrix" name="matrix" rows="5" required></textarea>
+                <button type="submit">Hitung</button>
+              </form>
+            </main>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div class="wrapper">
+      <section id="tutors">
+        <div class="tengah">
+          <div class="kolom">
+            <p class="deskripsi">Anggota Kelompok 8</p>
+            <h2>Kreator</h2>
+            <p></p>
+          </div>
+
+          <div class="tutor-list">
+            <div class="kartu-tutor">
+              <img src="https://dfu1k3y1rami2.cloudfront.net/wp-content/uploads/2014/07/26195109/2020_cb.jpg" />
+              <p>Mirsa Alif Putra</p>
+            </div>
+            <div class="kartu-tutor">
+              <img src="https://images.ctfassets.net/1wryd5vd9xez/4DxzhQY7WFsbtTkoYntq23/a4a04701649e92a929010a6a860b66bf/https___cdn-images-1.medium.com_max_2000_1_Y6l_FDhxOI1AhjL56dHh8g.jpeg" />
+              <p>Arif Rahman Hakim</p>
+            </div>
+            <div class="kartu-tutor">
+              <img src="https://images.fastcompany.net/image/upload/w_596,c_limit,q_auto:best,f_auto/fc/3021752-inline-i-1-why-square-designed-its-new-offices-to-work-like-a-city.jpg" />
+              <p>Fairuz</p>
+            </div>
+          </div>
+        </div>
+      </section>
+    </div>
+
+    <div id="contact">
+      <div class="wrapper">
+        <div class="footer">
+          <div class="footer-section">
+            <h3>From</h3>
+            <p>Universitas Negeri Surabaya</p>
+          </div>
+          <div class="footer-section">
+            <h3>About</h3>
+            <p>Web ini akan terus kami kembangkan hingga kancah internasional</p>
+          </div>
+          <div class="footer-section">
+            <h3>Contact</h3>
+            <p>Hubungi kami jika ada bug, error, dll</p>
+            <p><a href="">Klik disini</a></p>
+          </div>
+          <div class="footer-section">
+            <h3>Social</h3>
+            <p><b>YouTube: </b>Kelompok 8 OKE</p>
+          </div>
+        </div>
+      </div>
+    </div>
+
+    <div id="copyright">
+      <div class="wrapper">&copy; 2020. <b>Kelompok 8 OKE</b> All Rights Reserved.</div>
+    </div>
+  </body>
+</html>
